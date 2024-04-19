@@ -3,7 +3,7 @@
 Instant generate out of box full-stack source codes.
 
 ## How does it work ?
-![Alt Text](automaticode-solution-overview-v1.png)  
+![Alt Text](automaticode-solution-overview.png)  
 [See more detail in Whimsical](https://whimsical.com/automaticode-LEvhKTxLQXdn5pzRgQQUbr)
 
 ### Our goal is let developers / organizations only worried about the White Blocks, we provide out of box / production ready source codes to speed up every project's iteration cycle.

@@ -171,7 +171,6 @@ function GetPropMongoDefault(schema, prop) {
         default:
             break;
     }
-    console.log("".concat(prop.type, " : ").concat(defaultValue));
     return "".concat(defaultValue);
 }
 exports.GetPropMongoDefault = GetPropMongoDefault;

@@ -9,8 +9,8 @@
   },
   "Auth": {
     "Provider": "Firebase",
-    "Roles": ["super", "general", "admin","general-manager"],
-    "AdminRole": "admin",
+    "Roles": ["general", "super", "admin", "staff", "client", "owner"],
+    "AdminRole": "super",
     "DefaultRole": "general",
     "JWT": {
       "CustomTokenUserPayloadProperties": [

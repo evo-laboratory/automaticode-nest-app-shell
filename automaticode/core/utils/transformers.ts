@@ -217,7 +217,6 @@ export function GetPropMongoDefault(
     default:
       break;
   }
-  console.log(`${prop.type} : ${defaultValue}`);
   return `${defaultValue}`;
 }
 

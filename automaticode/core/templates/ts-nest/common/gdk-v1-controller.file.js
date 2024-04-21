@@ -33,6 +33,8 @@ function _GenerateListByIndexAPIs(schema) {
     var STRING_PROPS = [
         generator_type_1.GDK_PROPERTY_TYPE.EMAIL,
         generator_type_1.GDK_PROPERTY_TYPE.STRING,
+        generator_type_1.GDK_PROPERTY_TYPE.REFERENCE_ID,
+        generator_type_1.GDK_PROPERTY_TYPE.REFERENCE_USER_ID,
     ];
     var codes = schema.properties.reduce(function (allCodes, prop) {
         if (prop.isEnableMongoIndex && STRING_PROPS.includes(prop.type)) {
@@ -61,7 +63,7 @@ function _GenerateListByEnumOptionsAPI(schema) {
 }
 function _SoftDeleteAPI(schema) {
     if (schema.enableSoftDelete) {
-        return "".concat(_ResolveGuards(schema, false), "\n    @Delete(`${VER_1}/${SOFT_DELETE_PATH}:id`)\n    async softDelete").concat(schema.pascalCaseName, "ByIdV1(\n      @Param('id') id: string,\n    ) {\n      return await this.").concat((0, help_1.FstLetterLowerCase)(schema.serviceName), ".").concat(generator_static_1.DELETE_BY_ID_METHOD, "(id);\n    }\n  ");
+        return "".concat(_ResolveGuards(schema, false), "\n    @Delete(`${VER_1}/${SOFT_DELETE_PATH}/:id`)\n    async softDelete").concat(schema.pascalCaseName, "ByIdV1(\n      @Param('id') id: string,\n    ) {\n      return await this.").concat((0, help_1.FstLetterLowerCase)(schema.serviceName), ".").concat(generator_static_1.DELETE_BY_ID_METHOD, "(id);\n    }\n  ");
     }
     else {
         return '';
@@ -95,7 +97,8 @@ function _ResolveGuards(schema, isRead) {
             .forEach(function (str) { return roleUsing.push("ROLE.".concat((0, help_1.KebabToConstantCase)(str))); });
     }
     else if (!isRead && schema.defaultWriteRoles) {
-        schema.defaultReadRoles
+        console.log(schema.defaultWriteRoles.split(' '));
+        schema.defaultWriteRoles
             .split(' ')
             .forEach(function (str) { return roleUsing.push("ROLE.".concat((0, help_1.KebabToConstantCase)(str))); });
     }

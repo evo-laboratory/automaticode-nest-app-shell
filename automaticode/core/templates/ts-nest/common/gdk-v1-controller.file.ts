@@ -138,6 +138,8 @@ function _GenerateListByIndexAPIs(schema: IProcessedGDKSchema) {
   const STRING_PROPS: GDK_PROPERTY_TYPE[] = [
     GDK_PROPERTY_TYPE.EMAIL,
     GDK_PROPERTY_TYPE.STRING,
+    GDK_PROPERTY_TYPE.REFERENCE_ID,
+    GDK_PROPERTY_TYPE.REFERENCE_USER_ID,
   ];
   const codes: string[] = schema.properties.reduce(
     (allCodes: string[], prop) => {
@@ -204,7 +206,7 @@ function _GenerateListByEnumOptionsAPI(schema: IProcessedGDKSchema) {
 function _SoftDeleteAPI(schema: IProcessedGDKSchema) {
   if (schema.enableSoftDelete) {
     return `${_ResolveGuards(schema, false)}
-    @Delete(\`\${VER_1}/\${SOFT_DELETE_PATH}:id\`)
+    @Delete(\`\${VER_1}/\${SOFT_DELETE_PATH}/:id\`)
     async softDelete${schema.pascalCaseName}ByIdV1(
       @Param('id') id: string,
     ) {
@@ -252,7 +254,7 @@ function _ResolveGuards(schema: IProcessedGDKSchema, isRead = true) {
       .split(' ')
       .forEach((str) => roleUsing.push(`ROLE.${KebabToConstantCase(str)}`));
   } else if (!isRead && schema.defaultWriteRoles) {
-    schema.defaultReadRoles
+    schema.defaultWriteRoles
       .split(' ')
       .forEach((str) => roleUsing.push(`ROLE.${KebabToConstantCase(str)}`));
   } else {

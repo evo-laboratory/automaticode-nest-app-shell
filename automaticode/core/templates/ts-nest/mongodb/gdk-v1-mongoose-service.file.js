@@ -46,6 +46,8 @@ function _GenerateListByIndexMethods(schema) {
     var STRING_PROPS = [
         generator_type_1.GDK_PROPERTY_TYPE.EMAIL,
         generator_type_1.GDK_PROPERTY_TYPE.STRING,
+        generator_type_1.GDK_PROPERTY_TYPE.REFERENCE_ID,
+        generator_type_1.GDK_PROPERTY_TYPE.REFERENCE_USER_ID,
     ];
     var codes = schema.properties.reduce(function (allCodes, prop) {
         if (prop.isEnableMongoIndex && STRING_PROPS.includes(prop.type)) {

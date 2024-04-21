@@ -199,6 +199,8 @@ function _GenerateListByIndexMethods(schema: IProcessedGDKSchema) {
   const STRING_PROPS: GDK_PROPERTY_TYPE[] = [
     GDK_PROPERTY_TYPE.EMAIL,
     GDK_PROPERTY_TYPE.STRING,
+    GDK_PROPERTY_TYPE.REFERENCE_ID,
+    GDK_PROPERTY_TYPE.REFERENCE_USER_ID,
   ];
   const codes: string[] = schema.properties.reduce(
     (allCodes: string[], prop) => {

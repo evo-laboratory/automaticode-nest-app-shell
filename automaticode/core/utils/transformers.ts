@@ -160,10 +160,10 @@ export function GetPropMongoDefault(
   let defaultValue: any = null;
   switch (prop.type) {
     case GDK_PROPERTY_TYPE.STRING:
-      defaultValue = prop.default ? `${prop.default}` : null;
+      defaultValue = prop.default ? `${prop.default}` : `''`;
       break;
     case GDK_PROPERTY_TYPE.NUMBER:
-      defaultValue = prop.default ? Number(prop.default) : null;
+      defaultValue = prop.default ? Number(prop.default) : 0;
       break;
     case GDK_PROPERTY_TYPE.BOOLEAN:
       defaultValue = ParseAnyToBoolean(prop.default);
@@ -175,7 +175,7 @@ export function GetPropMongoDefault(
       defaultValue = null;
       break;
     case GDK_PROPERTY_TYPE.REFERENCE_ID_ARRAY:
-      defaultValue = [];
+      defaultValue = `[]`;
       break;
     case GDK_PROPERTY_TYPE.TIMESTAMP:
       defaultValue = Number(prop.default) || 0;
@@ -191,16 +191,16 @@ export function GetPropMongoDefault(
         : null;
       break;
     case GDK_PROPERTY_TYPE.STRING_ARRAY:
-      defaultValue = [];
+      defaultValue = `[]`;
       break;
     case GDK_PROPERTY_TYPE.NUMBER_ARRAY:
-      defaultValue = [];
+      defaultValue = `[]`;
       break;
     case GDK_PROPERTY_TYPE.BOOLEAN_ARRAY:
-      defaultValue = [];
+      defaultValue = `[]`;
       break;
     case GDK_PROPERTY_TYPE.OBJECT:
-      defaultValue = {};
+      defaultValue = `{}`;
       break;
     case GDK_PROPERTY_TYPE.EMAIL:
       defaultValue = null;
@@ -209,15 +209,16 @@ export function GetPropMongoDefault(
       defaultValue = null;
       break;
     case GDK_PROPERTY_TYPE.IMAGE_URL_ARRAY:
-      defaultValue = [];
+      defaultValue = `[]`;
       break;
     case GDK_PROPERTY_TYPE.QUILL_RICH_TEXT_EDITOR:
-      defaultValue = {};
+      defaultValue = `{}`;
       break;
     default:
       break;
   }
-  return defaultValue;
+  console.log(`${prop.type} : ${defaultValue}`);
+  return `${defaultValue}`;
 }
 
 export function GetPropTypescriptAnnotation(

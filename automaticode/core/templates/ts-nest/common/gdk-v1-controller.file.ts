@@ -166,6 +166,7 @@ function _GenerateListByIndexAPIs(schema: IProcessedGDKSchema) {
   if (codes.length > 0) {
     return codes.join('\n');
   }
+  return '';
 }
 
 function _GenerateListByEnumOptionsAPI(schema: IProcessedGDKSchema) {

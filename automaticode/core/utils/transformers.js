@@ -116,10 +116,10 @@ function GetPropMongoDefault(schema, prop) {
     var defaultValue = null;
     switch (prop.type) {
         case generator_type_1.GDK_PROPERTY_TYPE.STRING:
-            defaultValue = prop["default"] ? "".concat(prop["default"]) : null;
+            defaultValue = prop["default"] ? "".concat(prop["default"]) : "''";
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.NUMBER:
-            defaultValue = prop["default"] ? Number(prop["default"]) : null;
+            defaultValue = prop["default"] ? Number(prop["default"]) : 0;
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.BOOLEAN:
             defaultValue = ParseAnyToBoolean(prop["default"]);
@@ -131,7 +131,7 @@ function GetPropMongoDefault(schema, prop) {
             defaultValue = null;
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.REFERENCE_ID_ARRAY:
-            defaultValue = [];
+            defaultValue = "[]";
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.TIMESTAMP:
             defaultValue = Number(prop["default"]) || 0;
@@ -145,16 +145,16 @@ function GetPropMongoDefault(schema, prop) {
                 : null;
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.STRING_ARRAY:
-            defaultValue = [];
+            defaultValue = "[]";
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.NUMBER_ARRAY:
-            defaultValue = [];
+            defaultValue = "[]";
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.BOOLEAN_ARRAY:
-            defaultValue = [];
+            defaultValue = "[]";
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.OBJECT:
-            defaultValue = {};
+            defaultValue = "{}";
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.EMAIL:
             defaultValue = null;
@@ -163,15 +163,16 @@ function GetPropMongoDefault(schema, prop) {
             defaultValue = null;
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.IMAGE_URL_ARRAY:
-            defaultValue = [];
+            defaultValue = "[]";
             break;
         case generator_type_1.GDK_PROPERTY_TYPE.QUILL_RICH_TEXT_EDITOR:
-            defaultValue = {};
+            defaultValue = "{}";
             break;
         default:
             break;
     }
-    return defaultValue;
+    console.log("".concat(prop.type, " : ").concat(defaultValue));
+    return "".concat(defaultValue);
 }
 exports.GetPropMongoDefault = GetPropMongoDefault;
 function GetPropTypescriptAnnotation(schema, prop) {

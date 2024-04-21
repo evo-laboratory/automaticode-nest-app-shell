@@ -10,5 +10,8 @@ function _ResolveModuleImports(schemas) {
     var importCodes = schemas.map(function (schema) {
         return "import { ".concat(schema.moduleName, " } from './").concat(schema.kebabCaseName, "/").concat(schema.moduleFileName, "';");
     });
-    return importCodes.join('\n');
+    if (importCodes.length > 0) {
+        return importCodes.join('\n');
+    }
+    return '';
 }

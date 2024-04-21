@@ -44,6 +44,7 @@ function _GenerateListByIndexAPIs(schema) {
     if (codes.length > 0) {
         return codes.join('\n');
     }
+    return '';
 }
 function _GenerateListByEnumOptionsAPI(schema) {
     var codes = schema.properties.reduce(function (allCodes, prop) {

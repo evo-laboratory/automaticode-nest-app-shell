@@ -21,7 +21,7 @@ More are coming, star this repo to stay ahead.
 npm install
 ```
 
-**NOTE: ** You might need to delete `@types/glob @types/rimraf @types/minimatch` under `node_modules` temporary.
+**NOTE:** You might need to delete `@types/glob @types/rimraf @types/minimatch` under `node_modules` temporary.
 
 ## Register Firebase / SendGrid / MongoDB
 
@@ -43,8 +43,8 @@ npm install
 
 
 ### Setup MongoDB
-1. If you wish to run locally, follow [Install MongoDB Community Edition](https://www.mongodb.com/docs/manual/administration/install-community/) to set it up. After successfully setup, you will get the `MONGO_URI` also known as connection string. Update to `.env` `MONGO_URI=`. And set your prefered `.env` `MONGO_DB_NAME`.
-2. Alternative, you can setup a Cloud version using [MongoDB Atlas Getting Start](https://www.mongodb.com/cloud/atlas/register). It's free to get start. Update to `.env` `MONGO_URI=`. And set your prefered `.env` `MONGO_DB_NAME`, once you followed the get start process.
+1. If you wish to run locally, follow [Install MongoDB Community Edition](https://www.mongodb.com/docs/manual/administration/install-community/) to set it up. After successfully setup, you will get the `MONGO_URI` also known as connection string. Update to `.env` `MONGO_URI=`. And set your preferred `.env` `MONGO_DB_NAME`.
+2. Alternative, you can setup a Cloud version using [MongoDB Atlas Getting Start](https://www.mongodb.com/cloud/atlas/register). It's free to get start. Update to `.env` `MONGO_URI=`. And set your preferred `.env` `MONGO_DB_NAME`, once you followed the get start process.
 3. Remember to allow network access for your current IP. 
  
 
@@ -97,7 +97,8 @@ Choose -> E) Sync User and Role from automaticode.json Config.User
 
 This would sync the Roles to GDK modules.
 
-**NOTE:** You can customized your User Schema using `automaticode/schemas/user-extra.json`. (COMMING SOON)
+**NOTE:** You can customized your User Schema using `automaticode/schemas/user-extra.json`.
+(COMING SOON)
 
 
 ## Design {schema}.json
@@ -123,7 +124,7 @@ Choose -> A) Create a new schema
 Enter -> your-schema-name-with-kebab-case
 ```
 
-!!! Files would generated under `automaticode/schemas/{your-schema}.json`
+**Files would generated under** `automaticode/schemas/{your-schema}.json`
 
 2. Change Schema Content. 
 

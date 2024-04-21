@@ -21,6 +21,8 @@ More are coming, star this repo to stay ahead.
 npm install
 ```
 
+**NOTE: ** You might need to delete `@types/glob @types/rimraf @types/minimatch` under `node_modules` temporary.
+
 ## Register Firebase / SendGrid / MongoDB
 
 ### Register Firebase
@@ -42,7 +44,7 @@ npm install
 
 ### Setup MongoDB
 1. If you wish to run locally, follow [Install MongoDB Community Edition](https://www.mongodb.com/docs/manual/administration/install-community/) to set it up. After successfully setup, you will get the `MONGO_URI` also known as connection string. Update to `.env` `MONGO_URI=`. And set your prefered `.env` `MONGO_DB_NAME`.
-2. Alternative, you see setup a Cloud version using [MongoDB Atlas Getting Start](https://www.mongodb.com/cloud/atlas/register). It's free to get start. Update to `.env` `MONGO_URI=`. And set your prefered `.env` `MONGO_DB_NAME`, once you followed the get start process.
+2. Alternative, you can setup a Cloud version using [MongoDB Atlas Getting Start](https://www.mongodb.com/cloud/atlas/register). It's free to get start. Update to `.env` `MONGO_URI=`. And set your prefered `.env` `MONGO_DB_NAME`, once you followed the get start process.
 3. Remember to allow network access for your current IP. 
  
 
@@ -84,15 +86,18 @@ MONGO_DB_NAME=
 We have a file `automaticode.json` that configures our project, you don't have to change anything ( mostly doesn't affect yet). You can configure `Auth.Roles` and `Auth.CustomTokenUserPayloadProperties` to suit your needs.
 Please use `kebab-case` while you are adding your roles. (E.g. admin , super-admin, general-manager )
 
+**NOTE:** `"general super admin"` is default reserved roles, will remove in the near future.
+
 ```
 npm run auto
-
+```
+```
 Choose -> E) Sync User and Role from automaticode.json Config.User
 ```
 
 This would sync the Roles to GDK modules.
 
-NOTE: You can customized your User Schema using `automaticode/schemas/user-extra.json`. (COMMING SOON)
+**NOTE:** You can customized your User Schema using `automaticode/schemas/user-extra.json`. (COMMING SOON)
 
 
 ## Design {schema}.json
@@ -112,7 +117,8 @@ NOTE: You can customized your User Schema using `automaticode/schemas/user-extra
 1. To generate a schema file for you :
 ```
 npm run auto
-
+```
+```
 Choose -> A) Create a new schema
 Enter -> your-schema-name-with-kebab-case
 ```
@@ -191,7 +197,8 @@ After complete above designs, ready to see the magic.
 
 ```
 npm run auto
-
+```
+```
 Choose -> C) Generate GDK modules base on all Schemas
 
 ```

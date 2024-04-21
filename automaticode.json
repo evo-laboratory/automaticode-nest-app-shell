@@ -9,7 +9,7 @@
   },
   "Auth": {
     "Provider": "Firebase",
-    "Roles": ["general", "super", "admin", "staff", "client", "owner"],
+    "Roles": ["general", "super", "admin"],
     "AdminRole": "super",
     "DefaultRole": "general",
     "JWT": {

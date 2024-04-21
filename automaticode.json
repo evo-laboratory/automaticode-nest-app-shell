@@ -1,0 +1,31 @@
+{
+  "Config": {
+    "SchemaVersion": 1,
+    "SchemaFolder": "automaticode/schemas",
+    "GDKOutPutFolder": "src/gdk-modules",
+    "User": {
+      "ExtraSchemaJsonName": "user-extra"
+    }
+  },
+  "Auth": {
+    "Provider": "Firebase",
+    "Roles": ["super", "general", "admin","general-manager"],
+    "AdminRole": "admin",
+    "DefaultRole": "general",
+    "JWT": {
+      "CustomTokenUserPayloadProperties": [
+        "roles"
+      ]
+    }
+  },
+  "Mail": {
+    "Provider": "Sendgrid"
+  },
+  "Logger": {
+    "Provider": "Local"
+  },
+  "Database": {
+    "Provider": "MongoDB",
+    "ORMEngine": "mongoose"
+  }
+}

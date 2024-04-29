@@ -1,6 +1,9 @@
 import * as AutomaticodeJSON from '../../../../automaticode.json';
 import GDKV1GeneratedModuleListFile from '../../templates/project/gdk-v1-generated-module-list.file';
-import { GENERATE_LIST_FILE_NAME } from '../../types/generator.static';
+import {
+  GENERATE_LIST_FILE_NAME,
+  RESERVED_SCHEMA_NAMES,
+} from '../../types/generator.static';
 import {
   GDKSchema,
   GDK_PROPERTY_TYPE,
@@ -20,8 +23,15 @@ export default async function GenerateGDKModulesExec() {
   try {
     // * STEP 1. Read JSON Files under Config
     const jsonFileNames = await ReadSchemaDirectoryFileNames();
+    const FORBIDDEN_NAMES = RESERVED_SCHEMA_NAMES.concat([
+      `${AutomaticodeJSON.Config.User.ExtraSchemaJsonName}`,
+    ]);
+    // * STEP 2. Filter out reserved names json
+    const filteredJSONFileNames = jsonFileNames.filter((fileName: string) => {
+      return !FORBIDDEN_NAMES.includes(fileName);
+    });
     const gdkSchemas: IProcessedGDKSchema[] = await Promise.all(
-      jsonFileNames.map(async (file) => {
+      filteredJSONFileNames.map(async (file) => {
         const fileContent = (await ReadSchemaJSONFile(
           file,
         )) as unknown as GDKSchema<GDK_PROPERTY_TYPE>;
@@ -29,7 +39,8 @@ export default async function GenerateGDKModulesExec() {
         return schema;
       }),
     );
-    // * STEP 2. Validate JSON
+    // * STEP 3. Validate JSON
+    // TODO
     // * STEP 4. Call Generator
     await Promise.all(
       gdkSchemas.map(async (gSchema) => {

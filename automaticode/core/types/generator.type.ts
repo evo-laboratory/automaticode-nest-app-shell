@@ -57,6 +57,7 @@ export interface GDKSchemaProperty<T> {
   isEnableMongoIndex?: boolean; // * default false, only works on first layer
   referenceSchemaName: string; // * If type is REFERENCE_ID or REFERENCE_ID_LIST
   enumOptions: string[]; // * If type is ENUM_OPTION
+  skipEnumSchemaPrefix: boolean; // * If type is ENUM_OPTION, will skip add Schema name Prefix
   objectDefinition?: GDKSchemaProperty<T>; // * If type is OBJECT or ARRAY_OBJECT // * TODO
 }
 

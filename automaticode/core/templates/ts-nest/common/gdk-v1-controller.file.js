@@ -97,7 +97,6 @@ function _ResolveGuards(schema, isRead) {
             .forEach(function (str) { return roleUsing.push("ROLE.".concat((0, help_1.KebabToConstantCase)(str))); });
     }
     else if (!isRead && schema.defaultWriteRoles) {
-        console.log(schema.defaultWriteRoles.split(' '));
         schema.defaultWriteRoles
             .split(' ')
             .forEach(function (str) { return roleUsing.push("ROLE.".concat((0, help_1.KebabToConstantCase)(str))); });

@@ -389,6 +389,9 @@ export function GetEnumConstantCase(
   schema: IProcessedGDKSchema,
   prop: GDKSchemaProperty<GDK_PROPERTY_TYPE>,
 ): string {
+  if (prop.skipEnumSchemaPrefix) {
+    return `${KebabToConstantCase(prop.name)}`;
+  }
   return `${schema.constantCaseName}_${KebabToConstantCase(prop.name)}`;
 }
 

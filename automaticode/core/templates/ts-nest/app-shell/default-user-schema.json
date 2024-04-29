@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "includeCreatedAt": true,
+  "includeUpdatedAt": true,
+  "enableSoftDelete": true,
+  "properties": [
+    {
+      "name": "auth-id",
+      "alias": "授權 ID",
+      "descriptionNote": "Reference to auth Id",
+      "type": "STRING",
+      "isUnique": true,
+      "isRequired": true,
+      "isEnableMongoIndex": true,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "auth-provider",
+      "alias": "授權提供商",
+      "descriptionNote": "Auth Provider",
+      "type": "ENUM_OPTION",
+      "isUnique": false,
+      "isRequired": true,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": ["firebase","core-auth"]
+    },
+    {
+      "name": "auth-code",
+      "alias": "授權驗證碼",
+      "descriptionNote": "Auth code for validation",
+      "type": "STRING",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "auth-code-usage",
+      "alias": "授權驗證碼用途",
+      "descriptionNote": "Auth code usage",
+      "type": "ENUM_OPTION",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": "not-set",
+      "referenceSchemaName": "",
+      "enumOptions": ["not-set","sign-up-verify","phone-verify","change-password","forgot-password"]
+    },
+    {
+      "name": "auth-code-expired-at",
+      "alias": "授權驗證碼到期時間",
+      "descriptionNote": "Auth code expired at time",
+      "type": "DATE",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "display-name",
+      "alias": "顯示名稱",
+      "descriptionNote": "Display name",
+      "type": "STRING",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "first-name",
+      "alias": "名字",
+      "descriptionNote": "First name",
+      "type": "STRING",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "last-name",
+      "alias": "姓氏",
+      "descriptionNote": "Last name",
+      "type": "STRING",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "email",
+      "alias": "電子郵件",
+      "descriptionNote": "Email",
+      "type": "EMAIL",
+      "isUnique": true,
+      "isRequired": true,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "is-email-verified",
+      "alias": "電子郵件已驗證",
+      "descriptionNote": "is email verified",
+      "type": "BOOLEAN",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": false,
+      "referenceSchemaName": "",
+      "enumOptions": []
+    },
+    {
+      "name": "last-sign-in-at",
+      "alias": "上次登入時間",
+      "descriptionNote": "Last signed in at time",
+      "type": "TIMESTAMP",
+      "isUnique": false,
+      "isRequired": false,
+      "isEnableMongoIndex": false,
+      "default": "",
+      "referenceSchemaName": "",
+      "enumOptions": []
+    }
+  ]
+}

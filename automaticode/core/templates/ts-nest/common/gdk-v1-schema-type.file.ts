@@ -95,6 +95,7 @@ function _CreatedAtProp(): GDKSchemaProperty<GDK_PROPERTY_TYPE> {
     isEnableMongoIndex: false,
     referenceSchemaName: '',
     enumOptions: [],
+    skipEnumSchemaPrefix: false,
   };
 }
 
@@ -110,6 +111,7 @@ function _UpdatedAtProp(): GDKSchemaProperty<GDK_PROPERTY_TYPE> {
     isEnableMongoIndex: false,
     referenceSchemaName: '',
     enumOptions: [],
+    skipEnumSchemaPrefix: false,
   };
 }
 
@@ -125,5 +127,6 @@ function _SoftDeleteProp(): GDKSchemaProperty<GDK_PROPERTY_TYPE> {
     isEnableMongoIndex: false,
     referenceSchemaName: '',
     enumOptions: [],
+    skipEnumSchemaPrefix: false,
   };
 }

@@ -43,7 +43,7 @@ var help_1 = require("../utils/help");
 var file_1 = require("../utils/file");
 var create_gdk_schema_json_exec_1 = require("./executors/create-gdk-schema-json.exec");
 var create_gdk_modules_exec_1 = require("./executors/create-gdk-modules.exec");
-var role_sync_exec_1 = require("./executors/role-sync.exec");
+var user_extra_and_role_sync_exec_1 = require("./executors/user-extra-and-role-sync.exec");
 var scan_schema_exec_1 = require("./executors/scan-schema.exec");
 var Inquirer = inquirer;
 var START_QUESTIONS = [
@@ -102,7 +102,7 @@ function StartInquirer() {
                                 case 7:
                                     console.log(schemaJSONfileNames);
                                     return [3 /*break*/, 11];
-                                case 8: return [4 /*yield*/, (0, role_sync_exec_1["default"])()];
+                                case 8: return [4 /*yield*/, (0, user_extra_and_role_sync_exec_1["default"])()];
                                 case 9:
                                     _b.sent();
                                     return [3 /*break*/, 11];

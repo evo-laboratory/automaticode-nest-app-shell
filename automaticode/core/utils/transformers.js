@@ -313,6 +313,9 @@ function ParseAnyToBoolean(input) {
 }
 exports.ParseAnyToBoolean = ParseAnyToBoolean;
 function GetEnumConstantCase(schema, prop) {
+    if (prop.skipEnumSchemaPrefix) {
+        return "".concat((0, help_1.KebabToConstantCase)(prop.name));
+    }
     return "".concat(schema.constantCaseName, "_").concat((0, help_1.KebabToConstantCase)(prop.name));
 }
 exports.GetEnumConstantCase = GetEnumConstantCase;

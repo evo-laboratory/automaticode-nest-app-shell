@@ -44,7 +44,7 @@ var transformers_1 = require("../../utils/transformers");
 var ts_nest_gdk_mongo_generator_1 = require("../generators/ts-nest/mongodb/ts-nest-gdk-mongo.generator");
 function GenerateGDKModulesExec() {
     return __awaiter(this, void 0, void 0, function () {
-        var jsonFileNames, gdkSchemas, GENERATE_LIST_FILE, moduleListFileExist, error_1;
+        var jsonFileNames, FORBIDDEN_NAMES_1, filteredJSONFileNames, gdkSchemas, GENERATE_LIST_FILE, moduleListFileExist, error_1;
         var _this = this;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -53,7 +53,13 @@ function GenerateGDKModulesExec() {
                     return [4 /*yield*/, (0, file_1.ReadSchemaDirectoryFileNames)()];
                 case 1:
                     jsonFileNames = _a.sent();
-                    return [4 /*yield*/, Promise.all(jsonFileNames.map(function (file) { return __awaiter(_this, void 0, void 0, function () {
+                    FORBIDDEN_NAMES_1 = generator_static_1.RESERVED_SCHEMA_NAMES.concat([
+                        "".concat(AutomaticodeJSON.Config.User.ExtraSchemaJsonName),
+                    ]);
+                    filteredJSONFileNames = jsonFileNames.filter(function (fileName) {
+                        return !FORBIDDEN_NAMES_1.includes(fileName);
+                    });
+                    return [4 /*yield*/, Promise.all(filteredJSONFileNames.map(function (file) { return __awaiter(_this, void 0, void 0, function () {
                             var fileContent, schema;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
@@ -67,7 +73,8 @@ function GenerateGDKModulesExec() {
                         }); }))];
                 case 2:
                     gdkSchemas = _a.sent();
-                    // * STEP 2. Validate JSON
+                    // * STEP 3. Validate JSON
+                    // TODO
                     // * STEP 4. Call Generator
                     return [4 /*yield*/, Promise.all(gdkSchemas.map(function (gSchema) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
@@ -80,7 +87,8 @@ function GenerateGDKModulesExec() {
                             });
                         }); }))];
                 case 3:
-                    // * STEP 2. Validate JSON
+                    // * STEP 3. Validate JSON
+                    // TODO
                     // * STEP 4. Call Generator
                     _a.sent();
                     GENERATE_LIST_FILE = "".concat(AutomaticodeJSON.Config.GDKOutPutFolder, "/").concat(generator_static_1.GENERATE_LIST_FILE_NAME, ".ts");

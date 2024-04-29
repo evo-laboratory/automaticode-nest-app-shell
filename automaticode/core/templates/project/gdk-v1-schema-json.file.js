@@ -25,6 +25,7 @@ function GDKV1SchemaJSONFile(name) {
                 "default": '',
                 referenceSchemaName: '(If type is REFERENCE_ID or REFERENCE_ID_LIST)',
                 enumOptions: [],
+                skipEnumSchemaPrefix: false,
                 objectDefinition: {
                     name: '(objectDefinition use only when property type is OBJECT or ARRAY_OBJECT)',
                     alias: '範例2',
@@ -33,7 +34,8 @@ function GDKV1SchemaJSONFile(name) {
                     isRequired: true,
                     "default": '',
                     referenceSchemaName: '(If type is REFERENCE_ID or REFERENCE_ID_LIST)',
-                    enumOptions: []
+                    enumOptions: [],
+                    skipEnumSchemaPrefix: false
                 }
             },
         ],

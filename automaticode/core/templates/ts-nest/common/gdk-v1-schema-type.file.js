@@ -66,7 +66,8 @@ function _CreatedAtProp() {
         isUnique: false,
         isEnableMongoIndex: false,
         referenceSchemaName: '',
-        enumOptions: []
+        enumOptions: [],
+        skipEnumSchemaPrefix: false
     };
 }
 function _UpdatedAtProp() {
@@ -80,7 +81,8 @@ function _UpdatedAtProp() {
         isUnique: false,
         isEnableMongoIndex: false,
         referenceSchemaName: '',
-        enumOptions: []
+        enumOptions: [],
+        skipEnumSchemaPrefix: false
     };
 }
 function _SoftDeleteProp() {
@@ -94,6 +96,7 @@ function _SoftDeleteProp() {
         isUnique: false,
         isEnableMongoIndex: false,
         referenceSchemaName: '',
-        enumOptions: []
+        enumOptions: [],
+        skipEnumSchemaPrefix: false
     };
 }

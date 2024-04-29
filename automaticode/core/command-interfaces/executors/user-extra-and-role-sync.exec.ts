@@ -5,10 +5,11 @@ import GDKV1RoleStaticFile, {
 import { CheckFileExist, DeleteFile, WriteFile } from '../../utils/file';
 export default async function UserExtraSchemaAndRoleSyncExec() {
   try {
-    const USER_FOLDER = `${AutomaticodeJSON.Config.GDKOutPutFolder}/user`;
+    // ! dev-user is for developing, please change back to user
+    const USER_FOLDER = `${AutomaticodeJSON.Config.GDKOutPutFolder}/dev-user`;
     const ROLE_STATIC_PATH = `${USER_FOLDER}/${ROLE_STATIC_FILE_NAME}.ts`;
     const isFileExist = await CheckFileExist(ROLE_STATIC_PATH);
-    // TODO Implements UserSchema Update
+    // * Sync Role
     if (isFileExist) {
       // * Delete First
       await DeleteFile(ROLE_STATIC_PATH);
@@ -17,6 +18,10 @@ export default async function UserExtraSchemaAndRoleSyncExec() {
       ROLE_STATIC_PATH,
       GDKV1RoleStaticFile(AutomaticodeJSON.Auth.Roles),
     );
+    // * Update User Modules
+    // * STEP 1. Check if set user-extra is schemas/
+    // * STEP 2. Remove exist files
+    // * STEP 3. Regenerate files base on user-extra
   } catch (error) {
     console.log('[SYNC] Role failed');
   }

@@ -9,7 +9,7 @@ import { EnumToArray } from '../utils/help';
 import { ReadSchemaDirectoryFileNames } from '../utils/file';
 import CreateGDKSchemaJsonExec from './executors/create-gdk-schema-json.exec';
 import GenerateGDKModulesExec from './executors/create-gdk-modules.exec';
-import UserExtraSchemaAndRoleSyncExec from './executors/role-sync.exec';
+import UserExtraSchemaAndRoleSyncExec from './executors/user-extra-and-role-sync.exec';
 import ScanSchemas from './executors/scan-schema.exec';
 
 const Inquirer = inquirer as any;

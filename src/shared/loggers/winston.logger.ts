@@ -18,7 +18,7 @@ export const winstonConsoleFormat = winston.format.combine(
     const levelSym: string = Object.getOwnPropertySymbols(
       info,
     )[0] as unknown as string;
-    const levelText: string = info[levelSym];
+    const levelText: string = info[levelSym] as string;
     info.levelText = levelText;
     info.levelUppercase = info.level.replace(
       levelText,
